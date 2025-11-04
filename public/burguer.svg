@@ -1,0 +1,12 @@
+<svg viewBox="0 0 20 13" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+  <title>Hamburguesa Pixel Detallada</title>
+  <!-- pan superior -->
+  <rect x="0" y="0" width="20" height="3" fill="#d18b47"/>
+  <rect x="1" y="3" width="18" height="1" fill="#efc77b"/>
+  <!-- carne -->
+  <rect x="0" y="5" width="20" height="3" fill="#633022"/>
+  <!-- lechuga -->
+  <rect x="1" y="8" width="18" height="2" fill="#4d9e45"/>
+  <!-- pan inferior -->
+  <rect x="0" y="11" width="20" height="3" fill="#d18b47"/>
+</svg>

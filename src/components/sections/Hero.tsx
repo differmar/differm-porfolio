@@ -1,37 +1,8 @@
 "use client";
 
-import Image from "next/image";
-import { useAnimateDimensions } from "../../hook/useAnimateDimensions";
-import { useAnimateFromBottom } from "../../hook/useAnimateFromBottom";
 import { useFadeInEffect } from "../../hook/useFadeInEffect";
-import { useTheme } from "@/context/ThemeContext";
 
 const Hero = () => {
-  const { colors } = useTheme();
-  
-  const circleRef = useAnimateDimensions({
-    initialDimensions: {
-      width: "20rem",
-      height: "20rem",
-      borderRadius: "50%",
-    },
-    finalDimensions: {
-      width: "50rem",
-      height: "50rem",
-      borderRadius: "50%",
-    },
-    duration: 2,
-    ease: "power2.out",
-    delay: 0.5,
-  });
-
-  const imageRef = useAnimateFromBottom({
-    duration: 1.5,
-    ease: "power2.out",
-    delay: 1,
-    distance: 300,
-  });
-
   const textRef = useFadeInEffect({
     duration: 1.5,
     ease: "power2.out",
@@ -44,25 +15,16 @@ const Hero = () => {
         <div className="flex flex-col items-center justify-center relative">
           <h1
             ref={textRef}
-            className={`font-[mazurquica-vf] text-[26rem] leading-[10rem] font-bold relative z-10 transition-colors duration-500`}
-            style={{ color: colors.textSecondary }}
+            className={`font-[mazurquica-vf] text-[10rem] sm:text-[6rem] md:text-[24rem] leading-[8.5rem] sm:leading-normal font-bold bg-gradient-to-r from-[#A6A6A6] to-[#F2F2F2] bg-clip-text text-transparent relative z-10 text-center`}
           >
-            PORTFOLIO
+            <span className="block sm:inline">PORT</span>
+            <span className="hidden sm:inline"></span>
+            <span className="block sm:inline">FOLIO</span>
           </h1>
         </div>
       </div>
 
-      <div className="h-1/3 flex items-end justify-center pb-8">
-        <div ref={imageRef} className="relative z-20">
-          <Image
-            src="/differm.png"
-            alt="Differm"
-            width={700}
-            height={200}
-            className="object-contain"
-          />
-        </div>
-      </div>
+      <div className="h-1/3 flex items-end justify-center pb-8"></div>
     </div>
   );
 };
