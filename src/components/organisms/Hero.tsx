@@ -9,7 +9,7 @@ import GitHubGrid from "../molecules/GitHubGrid";
 const Hero = () => {
   return (
     <div className="min-h-screen flex flex-col relative pt-10 overflow-hidden">
-      <GitHubGrid opacity={0.7} changeInterval={1000} />
+      <GitHubGrid opacity={0.5} changeInterval={1000} />
       <div className="h-1/3 flex items-end justify-center relative z-20">
         <Image
           src="/differm.png"
