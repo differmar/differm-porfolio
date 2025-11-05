@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import SliderTrack from "../atoms/SliderTrack";
 import SliderBall from "../atoms/SliderBall";
 import Text from "../atoms/Text";
@@ -8,19 +9,21 @@ interface TimeSliderProps {
   startYear?: number;
   endYear?: number;
   className?: string;
+  ballRef?: React.RefObject<HTMLDivElement | null>;
 }
 
-const TimeSlider = ({ 
-  startYear = 2020, 
+const TimeSlider = React.forwardRef<HTMLDivElement, TimeSliderProps>(({ 
+  startYear = 2017, 
   endYear,
-  className = "" 
-}: TimeSliderProps) => {
+  className = "",
+  ballRef,
+}, ref) => {
   const currentYear = endYear || new Date().getFullYear();
 
   return (
-    <div className={`w-full max-w-4xl px-8 relative ${className}`}>
+    <div ref={ref} className={`w-full max-w-4xl px-8 relative ${className}`}>
       <SliderTrack>
-        <SliderBall />
+        <SliderBall ref={ballRef} />
       </SliderTrack>
       
       <div className="flex justify-between mt-4">
@@ -29,6 +32,8 @@ const TimeSlider = ({
       </div>
     </div>
   );
-};
+});
+
+TimeSlider.displayName = "TimeSlider";
 
 export default TimeSlider;

@@ -15,7 +15,7 @@ const TabMenu = ({ tabs, activeTab, onChange, className = "" }: TabMenuProps) =>
           key={tab}
           onClick={() => onChange(tab)}
           className={`
-            relative px-6 py-3 font-bold text-lg transition-all duration-300
+            font-quicksand relative px-6 py-3 font-bold text-lg transition-all duration-300
             ${
               activeTab === tab
                 ? "text-[#F2F2F2]"

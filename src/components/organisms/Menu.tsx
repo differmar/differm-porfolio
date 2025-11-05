@@ -42,8 +42,8 @@ const Menu = () => {
   };
 
   return (
-    <div className="flex items-center h-[8rem] px-4 sm:px-8 pt-10 relative">
-      <div className="absolute left-1/2 transform -translate-x-1/2">
+    <div className="flex items-center h-[8rem] px-4 pt-10 relative">
+      <div className="absolute">
         <p className={`${poppins.className} text-[1.8rem] sm:text-[2.4rem] opacity-80 font-bold text-[#F2F2F2]`}>
           <span ref={textRef} className="inline-block">differmar</span>
         </p>

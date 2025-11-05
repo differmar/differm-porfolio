@@ -16,7 +16,7 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(({
   className = "",
 }, ref) => {
   const sizeClasses = {
-    hero: "text-[10rem] sm:text-[6rem] md:text-[24rem] leading-[8.5rem] sm:leading-normal",
+    hero: "text-[10rem] sm:text-[6rem] md:text-[22rem] leading-[8.5rem] sm:leading-normal",
     "6xl": "text-[4rem] sm:text-[5rem] md:text-[6rem] lg:text-[8rem]",
     "5xl": "text-[3rem] sm:text-[4rem] md:text-[5rem]",
     "4xl": "text-[2.5rem] sm:text-[3rem] md:text-[4rem]",

@@ -51,13 +51,13 @@ const Skills = () => {
   });
 
   return (
-    <section id="skills" className="min-h-screen flex flex-col relative py-20">
+    <section id="skills" className="min-h-screen flex flex-col relative mb-10">
       <div className="flex flex-col items-center justify-center">
         <Heading
           ref={titleRef}
           level={2}
           size="6xl"
-          className="mb-16 text-center"
+          className="mb-2 text-center"
         >
           SKILLS
         </Heading>

@@ -87,7 +87,7 @@ const Projects = () => {
           ref={titleRef}
           level={2}
           size="6xl"
-          className="mb-16 text-center"
+          className="mb-4 text-center"
         >
           PROYECTOS
         </Heading>
