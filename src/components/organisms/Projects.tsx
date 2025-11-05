@@ -1,7 +1,8 @@
 "use client";
 
 import { useFadeInEffect } from "../../hook/useFadeInEffect";
-import ProjectCard from "../ProjectCard";
+import ProjectCard from "../molecules/ProjectCard";
+import Heading from "../atoms/Heading";
 
 interface Project {
   id: number;
@@ -72,7 +73,7 @@ const projects: Project[] = [
   },
 ];
 
-const Proyectos = () => {
+const Projects = () => {
   const titleRef = useFadeInEffect({
     duration: 1.5,
     ease: "power2.out",
@@ -82,12 +83,14 @@ const Proyectos = () => {
   return (
     <section id="proyectos" className="min-h-screen flex flex-col relative py-20">
       <div className="flex flex-col items-center justify-center">
-        <h2
+        <Heading
           ref={titleRef}
-          className="font-[mazurquica-vf] text-[4rem] sm:text-[5rem] md:text-[6rem] lg:text-[8rem] font-bold bg-gradient-to-r from-[#A6A6A6] to-[#F2F2F2] bg-clip-text text-transparent mb-16 text-center"
+          level={2}
+          size="6xl"
+          className="mb-16 text-center"
         >
           PROYECTOS
-        </h2>
+        </Heading>
         
         <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
@@ -106,5 +109,4 @@ const Proyectos = () => {
   );
 };
 
-export default Proyectos;
-
+export default Projects;

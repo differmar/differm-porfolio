@@ -1,9 +1,6 @@
 "use client";
 
-import Menu from "@/components/Menu/Menu";
-import Hero from "@/components/sections/Hero";
-import Proyectos from "@/components/sections/Projects";
-import Skills from "@/components/sections/Skills";
+import { Menu, Hero, Projects, Skills } from "@/components/organisms";
 
 export default function Home() {
   return (
@@ -25,7 +22,7 @@ export default function Home() {
           <Menu />
           <Hero />
         </div>
-        <Proyectos />
+        <Projects />
         <Skills />
       </div>
     </div>

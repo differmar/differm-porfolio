@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { montserrat, poppins } from "@/fonts";
+import { poppins } from "@/fonts";
 import { useTextSlideEffect } from "../../hook/useTextSlideEffect";
 import Image from "next/image";
+import MenuItem from "../molecules/MenuItem";
 
 const Menu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,7 +42,7 @@ const Menu = () => {
   };
 
   return (
-    <div className="flex items-center h-[8rem] px-4 sm:px-8 relative">
+    <div className="flex items-center h-[8rem] px-4 sm:px-8 pt-10 relative">
       <div className="absolute left-1/2 transform -translate-x-1/2">
         <p className={`${poppins.className} text-[1.8rem] sm:text-[2.4rem] opacity-80 font-bold text-[#F2F2F2]`}>
           <span ref={textRef} className="inline-block">differmar</span>
@@ -50,19 +51,12 @@ const Menu = () => {
       
       <div className="hidden sm:flex gap-6 ml-auto">
         {menuOptions.map((option) => (
-          <button
+          <MenuItem
             key={option.id}
-            className={`${montserrat.className} relative 
-              font-bold text-[1rem] leading-[1.2rem]
-              cursor-pointer pb-2 text-[#F2F2F2]
-              after:content-[''] after:absolute after:left-0 after:bottom-0
-              after:w-full after:h-[3px] after:bg-[#F2F2F2]
-              after:scale-x-0 after:origin-center
-              after:transition-transform after:duration-300
-              hover:after:scale-x-100`}
-          >
-            {option.label}
-          </button>
+            label={option.label}
+            href={option.href}
+            variant="desktop"
+          />
         ))}
       </div>
 
@@ -88,19 +82,13 @@ const Menu = () => {
       >
         <div className="flex flex-col items-center justify-center h-full gap-8">
           {menuOptions.map((option) => (
-            <button
+            <MenuItem
               key={option.id}
-              onClick={() => {
-                setIsMenuOpen(false);
-              }}
-              className={`${montserrat.className} 
-                font-bold text-[2rem] leading-[2.4rem]
-                cursor-pointer text-[#F2F2F2]
-                transition-opacity duration-300
-                hover:opacity-70`}
-            >
-              {option.label}
-            </button>
+              label={option.label}
+              href={option.href}
+              variant="mobile"
+              onClick={() => setIsMenuOpen(false)}
+            />
           ))}
         </div>
       </div>

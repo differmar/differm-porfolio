@@ -2,6 +2,8 @@
 
 import { useMemo, useState } from "react";
 import Image from "next/image";
+import Button from "../atoms/Button";
+import Text from "../atoms/Text";
 
 interface ProjectCardProps {
   id: number;
@@ -86,22 +88,15 @@ const ProjectCard = ({ id, title, description, image, action }: ProjectCardProps
         <h3 className="text-[#F2F2F2] text-xl font-bold mb-2">
           {title || `Proyecto ${id}`}
         </h3>
-        <p className="text-[#F2F2F2] text-sm opacity-80 mb-4">
+        <Text variant="caption" className="mb-4">
           {description || `Descripción del proyecto ${id}`}
-        </p>
+        </Text>
         {action && (
-          <button
-            onClick={() => {
-              if (action.onClick) {
-                action.onClick();
-              } else if (action.url) {
-                window.open(action.url, '_blank', 'noopener,noreferrer');
-              }
-            }}
-            className="text-[#F2F2F2] text-sm font-bold border border-[#F2F2F2] px-4 py-2 rounded-lg hover:bg-[#F2F2F2] hover:text-[#1a1a1a] transition-colors duration-300"
-          >
-            {action.label}
-          </button>
+          <Button
+            label={action.label}
+            onClick={action.onClick}
+            url={action.url}
+          />
         )}
       </div>
     </div>
@@ -109,4 +104,3 @@ const ProjectCard = ({ id, title, description, image, action }: ProjectCardProps
 };
 
 export default ProjectCard;
-
