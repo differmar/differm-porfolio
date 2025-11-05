@@ -9,7 +9,7 @@ const quicksand = Quicksand({
 });
 
 export const metadata: Metadata = {
-  title: "Differmar",
+  title: "Differmar - Portfolio",
   description: "Portfolio de Differmar",
 };
 

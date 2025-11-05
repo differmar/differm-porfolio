@@ -89,7 +89,7 @@ const Projects = () => {
           size="6xl"
           className="mb-4 text-center"
         >
-          PROYECTOS
+          PROJECTS
         </Heading>
         
         <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

@@ -12,22 +12,22 @@ const Menu = () => {
   const menuOptions = [
     {
       id: 1,
-      label: "INICIO",
+      label: "HOME",
       href: "#inicio",
     },
     {
       id: 2,
-      label: "SOBRE MI",
+      label: "ABOUT ME",
       href: "#sobre-mi",
     },
     {
       id: 3,
-      label: "PROYECTOS",
+      label: "PROJECTS",
       href: "#proyectos",
     },
     {
       id: 4,
-      label: "CONTACTO",
+      label: "CONTACT",
       href: "#contacto",
     },
   ];
