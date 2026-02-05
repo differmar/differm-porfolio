@@ -35,7 +35,7 @@ const Hero = () => {
             <span className="block sm:inline">FOLIO</span>
           </Heading>
           
-          <Text variant="label" className="tracking-widest text-center mt-2">
+          <Text variant="label" className="tracking-widest text-center md:mt-2 mt-20">
             {t("hero.subtitle")}
           </Text>
 

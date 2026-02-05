@@ -18,7 +18,7 @@ export default function Home() {
         <rect width="100%" height="100%" filter="url(#graniteNoise)" fill="rgba(0,0,0,0.3)"/>
       </svg>
       <div className="mx-auto flex flex-col w-full max-w-[1280px] relative z-10 px-4 sm:px-6 lg:px-8">
-        <div className="h-screen flex flex-col">
+        <div className="h-[80vh]  md:h-screen flex flex-col">
           <Menu />
           <Hero />
         </div>
