@@ -46,7 +46,7 @@ const ProjectCard = ({
 
   return (
     <div
-      className="group relative rounded-3xl p-6 border border-[#333] bg-[#1a1a1a] overflow-hidden min-h-[450px]"
+      className="group relative rounded-3xl p-6 border border-[#333] bg-[#1a1a1a] overflow-hidden min-h-[480px]"
       style={{
         transition: "background 0.7s ease-in-out",
       }}
@@ -114,7 +114,7 @@ const ProjectCard = ({
           <h3 className="text-[#F2F2F2] text-xl font-bold mb-2">
             {title || `Proyecto ${id}`}
           </h3>
-          <Text variant="caption" className="mb-4">
+          <Text variant="caption" className="mb">
             {description || `Descripción del proyecto ${id}`}
           </Text>
         </div>

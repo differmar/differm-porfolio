@@ -19,56 +19,14 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: "Proyecto Web",
-    description: "Aplicación web moderna con React y Next.js",
+    title: "MakerFlow",
+    description: "MakerFlow is a production management platform built for small-scale 3D printing farms. It helps track material usage, calculate real printing costs, manage inventory, and monitor production metrics in one place.",
+    image: "/images/logo.svg",
     action: {
-      label: "Ir al proyecto",
-      url: "https://example.com/proyecto-1",
-    },
-  },
-  {
-    id: 2,
-    title: "App Mobile",
-    description: "Aplicación móvil nativa para iOS y Android",
-    action: {
-      label: "Ver demo",
-      url: "https://example.com/proyecto-2",
-    },
-  },
-  {
-    id: 3,
-    title: "Diseño UI/UX",
-    description: "Sistema de diseño completo y componentes",
-    action: {
-      label: "Explorar",
-      url: "https://example.com/proyecto-3",
-    },
-  },
-  {
-    id: 4,
-    title: "E-commerce",
-    description: "Plataforma de comercio electrónico escalable",
-    action: {
-      label: "Visitar",
-      url: "https://example.com/proyecto-4",
-    },
-  },
-  {
-    id: 5,
-    title: "Dashboard",
-    description: "Panel de administración con analytics",
-    action: {
-      label: "Ir",
-      url: "https://example.com/proyecto-5",
-    },
-  },
-  {
-    id: 6,
-    title: "Portfolio",
-    description: "Sitio web personal y portfolio creativo",
-    action: {
-      label: "Ver más",
-      url: "https://example.com/proyecto-6",
+      label: "Request Demo",
+      onClick: () => {
+        window.location.href = "mailto:dfmarcillop@gmail.com?subject=Demo Request";
+      },
     },
   },
 ];

@@ -14,7 +14,7 @@ const Hero = () => {
         <Image
           src="/differm.png"
           alt="Differmar"
-          width={1000}
+          width={300}
           height={300}
           className="z-10 translate-y-1/3 absolute object-contain max-w-[220px] sm:max-w-xs md:max-w-sm lg:max-w-md   transition-opacity duration-300 rounded-t-full"
           style={{ borderRadius: "50% 50% 30% 30% / 100% 100% 50% 50%" }}
