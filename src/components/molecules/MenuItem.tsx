@@ -11,14 +11,14 @@ interface MenuItemProps {
 
 const MenuItem = ({ label, href, onClick, variant = "desktop" }: MenuItemProps) => {
   const handleClick = () => {
-    if (onClick) {
-      onClick();
-    } else if (href) {
-      // Scroll suave al elemento
+    if (href) {
       const element = document.querySelector(href);
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }
+    }
+    if (onClick) {
+      onClick();
     }
   };
 

@@ -10,6 +10,7 @@ interface ProjectCardProps {
   title?: string;
   description?: string;
   image?: string;
+  year?: string;
   action?: {
     label: string;
     url?: string;
@@ -28,6 +29,7 @@ const ProjectCard = ({
   title,
   description,
   image,
+  year,
   action,
 }: ProjectCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -100,6 +102,11 @@ const ProjectCard = ({
       </svg>
       <div className="relative z-10 flex flex-col h-full justify-between px-2">
         <div>
+          {year && (
+            <span className="absolute top-4 right-4 text-xs text-[#A6A6A6] bg-[#262626] border border-[#333] px-2 py-0.5 rounded-full z-20">
+              {year}
+            </span>
+          )}
           <div className="w-full h-48 bg-[#333] rounded mb-4 overflow-hidden">
             {image && (
               <Image

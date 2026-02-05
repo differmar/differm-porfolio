@@ -1,6 +1,6 @@
 "use client";
 
-import { Menu, Hero, Projects, Skills } from "@/components/organisms";
+import { Menu, Hero, Projects, Skills, Experience } from "@/components/organisms";
 
 export default function Home() {
   return (
@@ -24,6 +24,7 @@ export default function Home() {
         </div>
         <Projects />
         <Skills />
+        <Experience />
       </div>
     </div>
   );

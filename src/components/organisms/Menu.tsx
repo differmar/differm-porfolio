@@ -27,6 +27,11 @@ const Menu = () => {
     },
     {
       id: 4,
+      label: "EXPERIENCE",
+      href: "#experience",
+    },
+    {
+      id: 5,
       label: "CONTACT",
       href: "#contacto",
     },

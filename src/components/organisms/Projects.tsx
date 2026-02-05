@@ -9,6 +9,7 @@ interface Project {
   title: string;
   description: string;
   image?: string;
+  year?: string;
   action: {
     label: string;
     url?: string;
@@ -22,6 +23,7 @@ const projects: Project[] = [
     title: "MakerFlow",
     description: "MakerFlow is a production management platform built for small-scale 3D printing farms. It helps track material usage, calculate real printing costs, manage inventory, and monitor production metrics in one place.",
     image: "/images/logo.svg",
+    year: "2025",
     action: {
       label: "Request Demo",
       onClick: () => {
@@ -39,7 +41,7 @@ const Projects = () => {
   });
 
   return (
-    <section id="proyectos" className="min-h-screen flex flex-col relative py-20">
+    <section id="proyectos" className="min-h-screen flex flex-col relative md:py-20">
       <div className="flex flex-col items-center justify-center">
         <Heading
           ref={titleRef}
@@ -58,6 +60,7 @@ const Projects = () => {
               title={project.title}
               description={project.description}
               image={project.image}
+              year={project.year}
               action={project.action}
             />
           ))}
