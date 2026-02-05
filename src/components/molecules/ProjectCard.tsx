@@ -48,7 +48,9 @@ const ProjectCard = ({
 
   return (
     <div
-      className="group relative rounded-3xl p-6 border border-[#333] bg-[#1a1a1a] overflow-hidden min-h-[480px]"
+      className="group relative rounded-3xl p-6 border border-[#3a3a3a] bg-[#262626] overflow-hidden min-h-[480px]"
+      role="article"
+      aria-label={title || `Proyecto ${id}`}
       style={{
         transition: "background 0.7s ease-in-out",
       }}
@@ -58,7 +60,7 @@ const ProjectCard = ({
         setIsHovered(true);
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.background = "#1a1a1a";
+        e.currentTarget.style.background = "#262626";
         setIsHovered(false);
       }}
       onFocus={(e) => {
@@ -66,7 +68,7 @@ const ProjectCard = ({
         setIsHovered(true);
       }}
       onBlur={(e) => {
-        e.currentTarget.style.background = "#1a1a1a";
+        e.currentTarget.style.background = "#262626";
         setIsHovered(false);
       }}
     >
@@ -101,13 +103,13 @@ const ProjectCard = ({
         />
       </svg>
       <div className="relative z-10 flex flex-col h-full justify-between px-2">
-        <div>
+        <div className="mb-8">
           {year && (
-            <span className="absolute top-4 right-4 text-xs text-[#A6A6A6] bg-[#262626] border border-[#333] px-2 py-0.5 rounded-full z-20">
+            <span className="absolute top-4 right-4 text-xs text-[#BFBFBF] bg-[#2d2d2d] border border-[#3a3a3a] px-2 py-0.5 rounded-full z-20">
               {year}
             </span>
           )}
-          <div className="w-full h-48 bg-[#333] rounded mb-4 overflow-hidden">
+          <div className="w-full h-48 bg-[#3a3a3a] rounded mb-4 overflow-hidden">
             {image && (
               <Image
                 src={image}

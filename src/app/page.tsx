@@ -1,11 +1,11 @@
 "use client";
 
-import { Menu, Hero, Projects, Skills, Experience } from "@/components/organisms";
+import { Menu, Hero, AboutMe, Projects, Skills, Experience } from "@/components/organisms";
 
 export default function Home() {
   return (
     <div 
-      className="bg-[#262626] relative overflow-hidden"
+      className="bg-[#121010] relative overflow-hidden"
     >
       <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ opacity: 0.5, mixBlendMode: "multiply" }}>
         <filter id="graniteNoise">
@@ -22,6 +22,7 @@ export default function Home() {
           <Menu />
           <Hero />
         </div>
+        <AboutMe />
         <Projects />
         <Skills />
         <Experience />

@@ -19,7 +19,7 @@ const TabMenu = ({ tabs, activeTab, onChange, className = "" }: TabMenuProps) =>
             ${
               activeTab === tab
                 ? "text-[#F2F2F2]"
-                : "text-[#A6A6A6] hover:text-[#F2F2F2]"
+                : "text-[#BFBFBF] hover:text-[#F2F2F2]"
             }
           `}
         >

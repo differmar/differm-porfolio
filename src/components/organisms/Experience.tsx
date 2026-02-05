@@ -1,6 +1,7 @@
 "use client";
 
 import { useFadeInEffect } from "../../hook/useFadeInEffect";
+import { useLanguage } from "../../context/LanguageContext";
 import ExperienceItem from "../molecules/ExperienceItem";
 import Heading from "../atoms/Heading";
 
@@ -109,6 +110,7 @@ const experiences: ExperienceEntry[] = [
 ];
 
 const Experience = () => {
+  const { t } = useLanguage();
   const titleRef = useFadeInEffect({
     duration: 1.5,
     ease: "power2.out",
@@ -124,7 +126,7 @@ const Experience = () => {
           size="6xl"
           className="mb-8 text-center"
         >
-          EXPERIENCE
+          {t("experience.heading")}
         </Heading>
 
         <div className="w-full max-w-3xl">

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useFadeInEffect } from "../../hook/useFadeInEffect";
+import { useLanguage } from "../../context/LanguageContext";
 import Heading from "../atoms/Heading";
 import SkillItem from "../molecules/SkillItem";
 import TabMenu from "../molecules/TabMenu";
@@ -14,7 +15,6 @@ interface Skill {
 }
 
 const skills: Skill[] = [
-  // Developer skills
   { id: 1, name: "React", logo: "/logos/react.svg", category: "developer" },
   { id: 2, name: "React Native", logo: "/logos/reactnative.svg", category: "developer" },
   { id: 3, name: "Next.js", logo: "/logos/nextjs.svg", category: "developer" },
@@ -32,23 +32,21 @@ const skills: Skill[] = [
   { id: 15, name: "Adobe Lightroom", logo: "/logos/lightroom.svg", category: "creator" },
 ];
 
-const tabs = ["Developer", "Creator"];
-
 const Skills = () => {
-  const [activeTab, setActiveTab] = useState<string>("Developer");
+  const { t } = useLanguage();
+  const [activeTab, setActiveTab] = useState<string>("developer");
   const titleRef = useFadeInEffect({
     duration: 1.5,
     ease: "power2.out",
     delay: 0.3,
   });
 
-  const filteredSkills = skills.filter((skill) => {
-    const categoryMap: Record<string, string> = {
-      Developer: "developer",
-      Creator: "creator",
-    };
-    return skill.category === categoryMap[activeTab];
-  });
+  const tabs = [
+    { key: "developer", label: t("skills.developer") },
+    { key: "creator", label: t("skills.creator") },
+  ];
+
+  const filteredSkills = skills.filter((skill) => skill.category === activeTab);
 
   return (
     <section id="skills" className="min-h-screen flex flex-col relative mb-10">
@@ -59,13 +57,16 @@ const Skills = () => {
           size="6xl"
           className="mb-2 text-center"
         >
-          SKILLS
+          {t("skills.heading")}
         </Heading>
 
         <TabMenu
-          tabs={tabs}
-          activeTab={activeTab}
-          onChange={setActiveTab}
+          tabs={tabs.map((tab) => tab.label)}
+          activeTab={tabs.find((tab) => tab.key === activeTab)?.label || ""}
+          onChange={(label) => {
+            const tab = tabs.find((tab) => tab.label === label);
+            if (tab) setActiveTab(tab.key);
+          }}
           className="flex-wrap justify-center"
         />
 
@@ -80,8 +81,8 @@ const Skills = () => {
               />
             ))
           ) : (
-            <div className="col-span-full text-center text-[#A6A6A6] text-lg">
-              No skills available in this category yet.
+            <div className="col-span-full text-center text-[#BFBFBF] text-lg">
+              {t("skills.empty")}
             </div>
           )}
         </div>

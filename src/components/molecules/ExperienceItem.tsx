@@ -1,6 +1,8 @@
 "use client";
 
 import Text from "../atoms/Text";
+import { useLanguage } from "../../context/LanguageContext";
+import { TranslationKey } from "../../i18n/translations";
 
 interface ExperienceItemProps {
   company: string;
@@ -14,13 +16,6 @@ interface ExperienceItemProps {
   isLast?: boolean;
 }
 
-const formatDate = (date: string) => {
-  if (date === "Present") return "Present";
-  const [year, month] = date.split("-");
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  return `${months[parseInt(month) - 1]} ${year}`;
-};
-
 const ExperienceItem = ({
   company,
   role,
@@ -32,17 +27,26 @@ const ExperienceItem = ({
   skills,
   isLast = false,
 }: ExperienceItemProps) => {
+  const { t } = useLanguage();
+
+  const formatDate = (date: string) => {
+    if (date === "Present") return t("experience.present");
+    const [year, month] = date.split("-");
+    const monthKey = `month.${parseInt(month)}` as TranslationKey;
+    return `${t(monthKey)} ${year}`;
+  };
+
   return (
     <div className="flex gap-4 sm:gap-6">
       {/* Timeline line and dot */}
       <div className="flex flex-col items-center">
         <div className="w-3 h-3 rounded-full bg-[#F2F2F2] border-2 border-[#F2F2F2] mt-2 shrink-0" />
-        {!isLast && <div className="w-[2px] flex-1 bg-[#333]" />}
+        {!isLast && <div className="w-[2px] flex-1 bg-[#3a3a3a]" />}
       </div>
 
       {/* Content card */}
       <div className="pb-8 flex-1">
-        <div className="rounded-2xl border border-[#333] bg-[#1a1a1a] p-5 transition-all duration-300 hover:border-[#F2F2F2]/30">
+        <div className="rounded-2xl border border-[#3a3a3a] bg-[#262626] p-5 transition-all duration-300 hover:border-[#F2F2F2]/30">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-2">
             <h3 className="text-[#F2F2F2] text-lg font-bold">{role}</h3>
             <Text variant="caption" className="text-xs opacity-60">
@@ -54,13 +58,13 @@ const ExperienceItem = ({
             <Text variant="label" className="!text-base !text-[#FFDCC0]">
               {company}
             </Text>
-            <span className="text-[#333]">·</span>
+            <span className="text-[#3a3a3a]">·</span>
             <Text variant="caption" className="opacity-60">{employmentType}</Text>
-            <span className="text-[#333]">·</span>
+            <span className="text-[#3a3a3a]">·</span>
             <Text variant="caption" className="opacity-60">{location}</Text>
             {remote && (
-              <span className="text-xs text-[#F2F2F2] bg-[#333] px-2 py-0.5 rounded-full">
-                Remote
+              <span className="text-xs text-[#F2F2F2] bg-[#3a3a3a] px-2 py-0.5 rounded-full">
+                {t("experience.remote")}
               </span>
             )}
           </div>
@@ -69,7 +73,7 @@ const ExperienceItem = ({
             {skills.map((skill) => (
               <span
                 key={skill}
-                className="text-xs text-[#A6A6A6] border border-[#333] px-2 py-1 rounded-lg"
+                className="text-xs text-[#BFBFBF] border border-[#3a3a3a] px-2 py-1 rounded-lg"
               >
                 {skill}
               </span>

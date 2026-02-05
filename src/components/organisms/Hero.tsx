@@ -2,11 +2,14 @@
 
 import Image from "next/image";
 import Heading from "../atoms/Heading";
+import Text from "../atoms/Text";
+import { useLanguage } from "../../context/LanguageContext";
 import YearTimer from "../molecules/YearTimer";
 import SocialLinks from "../molecules/SocialLinks";
 import GitHubGrid from "../molecules/GitHubGrid";
 
 const Hero = () => {
+  const { t } = useLanguage();
   return (
     <div className="min-h-screen flex flex-col relative pt-10 overflow-hidden">
       <GitHubGrid opacity={0.5} changeInterval={1000} />
@@ -32,9 +35,13 @@ const Hero = () => {
             <span className="block sm:inline">FOLIO</span>
           </Heading>
           
-          <YearTimer startYear={2017} className="" />
+          <Text variant="label" className="tracking-widest text-center mt-2">
+            {t("hero.subtitle")}
+          </Text>
+
+          <YearTimer startYear={2020} className="" />
           
-          <SocialLinks className="mt-12" />
+          <SocialLinks className="mt-2" />
         </div>
       </div>
     </div>

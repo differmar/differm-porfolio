@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
+import { LanguageProvider } from "../context/LanguageContext";
 import "./globals.css";
 
 const quicksand = Quicksand({
@@ -27,7 +28,9 @@ export default function RootLayout({
         className={`${quicksand.variable} antialiased`}
         style={{ fontFamily: "var(--font-quicksand)" }}
       >
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

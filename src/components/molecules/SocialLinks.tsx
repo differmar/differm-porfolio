@@ -74,7 +74,7 @@ const SocialLinks = ({ className = "" }: SocialLinksProps) => {
           href={link.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[#A6A6A6] hover:text-[#F2F2F2] transition-colors duration-300"
+          className="text-[#BFBFBF] hover:text-[#F2F2F2] transition-colors duration-300"
           aria-label={link.name}
         >
           {link.icon}

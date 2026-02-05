@@ -9,7 +9,7 @@ interface TextProps {
 const Text = ({ children, variant = "body", className = "" }: TextProps) => {
   const variantStyles = {
     body: "text-[#F2F2F2]",
-    label: "text-[#A6A6A6] text-lg sm:text-xl font-medium",
+    label: "text-[#BFBFBF] text-lg sm:text-xl font-medium",
     caption: "text-[#F2F2F2] text-sm opacity-80",
   };
 

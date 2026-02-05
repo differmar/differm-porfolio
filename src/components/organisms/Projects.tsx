@@ -1,17 +1,18 @@
 "use client";
 
 import { useFadeInEffect } from "../../hook/useFadeInEffect";
+import { useLanguage } from "../../context/LanguageContext";
 import ProjectCard from "../molecules/ProjectCard";
 import Heading from "../atoms/Heading";
 
 interface Project {
   id: number;
   title: string;
-  description: string;
+  descriptionKey: string;
   image?: string;
   year?: string;
   action: {
-    label: string;
+    labelKey: string;
     url?: string;
     onClick?: () => void;
   };
@@ -21,11 +22,11 @@ const projects: Project[] = [
   {
     id: 1,
     title: "MakerFlow",
-    description: "MakerFlow is a production management platform built for small-scale 3D printing farms. It helps track material usage, calculate real printing costs, manage inventory, and monitor production metrics in one place.",
+    descriptionKey: "projects.makerflow.description",
     image: "/images/logo.svg",
     year: "2025",
     action: {
-      label: "Request Demo",
+      labelKey: "projects.makerflow.action",
       onClick: () => {
         window.location.href = "mailto:dfmarcillop@gmail.com?subject=Demo Request";
       },
@@ -34,6 +35,7 @@ const projects: Project[] = [
 ];
 
 const Projects = () => {
+  const { t } = useLanguage();
   const titleRef = useFadeInEffect({
     duration: 1.5,
     ease: "power2.out",
@@ -49,19 +51,23 @@ const Projects = () => {
           size="6xl"
           className="mb-4 text-center"
         >
-          PROJECTS
+          {t("projects.heading")}
         </Heading>
-        
+
         <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
-            <ProjectCard 
-              key={project.id} 
+            <ProjectCard
+              key={project.id}
               id={project.id}
               title={project.title}
-              description={project.description}
+              description={t(project.descriptionKey as never)}
               image={project.image}
               year={project.year}
-              action={project.action}
+              action={{
+                label: t(project.action.labelKey as never),
+                url: project.action.url,
+                onClick: project.action.onClick,
+              }}
             />
           ))}
         </div>
