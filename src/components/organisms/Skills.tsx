@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useFadeInEffect } from "../../hook/useFadeInEffect";
 import { useLanguage } from "../../context/LanguageContext";
 import Heading from "../atoms/Heading";
@@ -35,6 +35,9 @@ const skills: Skill[] = [
 const Skills = () => {
   const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState<string>("developer");
+  const [displayTab, setDisplayTab] = useState<string>("developer");
+  const [phase, setPhase] = useState<"visible" | "exiting" | "entering">("visible");
+
   const titleRef = useFadeInEffect({
     duration: 1.5,
     ease: "power2.out",
@@ -46,7 +49,39 @@ const Skills = () => {
     { key: "creator", label: t("skills.creator") },
   ];
 
-  const filteredSkills = skills.filter((skill) => skill.category === activeTab);
+  const handleTabChange = (label: string) => {
+    const tab = tabs.find((t) => t.label === label);
+    if (!tab || tab.key === activeTab || phase !== "visible") return;
+
+    setActiveTab(tab.key);
+    setPhase("exiting");
+  };
+
+  useEffect(() => {
+    if (phase === "exiting") {
+      const timeout = setTimeout(() => {
+        setDisplayTab(activeTab);
+        setPhase("entering");
+      }, 250);
+      return () => clearTimeout(timeout);
+    }
+    if (phase === "entering") {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setPhase("visible");
+        });
+      });
+    }
+  }, [phase, activeTab]);
+
+  const filteredSkills = skills.filter((skill) => skill.category === displayTab);
+
+  const animationClass =
+    phase === "exiting"
+      ? "-translate-y-6 opacity-0"
+      : phase === "entering"
+        ? "translate-y-6 opacity-0"
+        : "translate-y-0 opacity-100";
 
   return (
     <section id="skills" className="min-h-screen flex flex-col relative mb-10">
@@ -63,28 +98,29 @@ const Skills = () => {
         <TabMenu
           tabs={tabs.map((tab) => tab.label)}
           activeTab={tabs.find((tab) => tab.key === activeTab)?.label || ""}
-          onChange={(label) => {
-            const tab = tabs.find((tab) => tab.label === label);
-            if (tab) setActiveTab(tab.key);
-          }}
+          onChange={handleTabChange}
           className="flex-wrap justify-center"
         />
 
-        <div className="w-full max-w-6xl grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-8 px-4">
-          {filteredSkills.length > 0 ? (
-            filteredSkills.map((skill) => (
-              <SkillItem
-                key={skill.id}
-                id={skill.id}
-                name={skill.name}
-                logo={skill.logo}
-              />
-            ))
-          ) : (
-            <div className="col-span-full text-center text-[#BFBFBF] text-lg">
-              {t("skills.empty")}
-            </div>
-          )}
+        <div className="w-full max-w-6xl px-4">
+          <div
+            className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-8 transition-all duration-300 ease-out ${animationClass}`}
+          >
+            {filteredSkills.length > 0 ? (
+              filteredSkills.map((skill) => (
+                <SkillItem
+                  key={skill.id}
+                  id={skill.id}
+                  name={skill.name}
+                  logo={skill.logo}
+                />
+              ))
+            ) : (
+              <div className="col-span-full text-center text-[#BFBFBF] text-lg">
+                {t("skills.empty")}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </section>
