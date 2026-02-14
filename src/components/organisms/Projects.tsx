@@ -20,6 +20,17 @@ interface Project {
 
 const projects: Project[] = [
   {
+    id: 2,
+    title: "Stour",
+    descriptionKey: "projects.stour.description",
+    image: "/logos/stour.svg",
+    year: "2025",
+    action: {
+      labelKey: "projects.stour.action",
+      url: "https://colstour.com/",
+    },
+  },
+  {
     id: 1,
     title: "MakerFlow",
     descriptionKey: "projects.makerflow.description",

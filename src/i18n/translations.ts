@@ -14,6 +14,8 @@ const translations = {
 
     // Projects
     "projects.heading": "PROJECTS",
+    "projects.stour.description": "Stour is an online store where you can find different types of products.",
+    "projects.stour.action": "Visit Store",
     "projects.makerflow.description":
       "MakerFlow is a production management platform built for small-scale 3D printing farms. It helps track material usage, calculate real printing costs, manage inventory, and monitor production metrics in one place.",
     "projects.makerflow.action": "Request Demo",
@@ -65,6 +67,8 @@ const translations = {
 
     // Projects
     "projects.heading": "PROYECTOS",
+    "projects.stour.description": "Stour es una tienda en línea donde se venden diferentes tipos de productos.",
+    "projects.stour.action": "Visitar Tienda",
     "projects.makerflow.description":
       "MakerFlow es una plataforma de gestión de producción diseñada para granjas de impresión 3D a pequeña escala. Ayuda a rastrear el uso de materiales, calcular costos reales de impresión, gestionar inventario y monitorear métricas de producción en un solo lugar.",
     "projects.makerflow.action": "Solicitar Demo",
