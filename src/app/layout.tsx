@@ -10,8 +10,7 @@ const quicksand = Quicksand({
 });
 
 export const metadata: Metadata = {
-  title: "Differmar - Portfolio",
-  description: "Portfolio de Differmar",
+  title: "Differmar",
 };
 
 export default function RootLayout({
